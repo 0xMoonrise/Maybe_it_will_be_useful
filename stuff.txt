@@ -1,5 +1,6 @@
 #Get the hash md5 and some text at right side, remember how to use sed command and regex
 $ cat raw_data.txt | tr '\n|\t' ' ' |sed 's/\s\+/ /g' | sed "s/[0-9A-F]\{32\}/\n&/2g" ; echo
+$ cat raw_data.txt | sed "s: :\::" > data.txt
 
 #Some commands I used once time
 $ tar cvfz wildfly-10.1.tar /opt/wildfly-10.1.0.Final/ --exclude="/opt/wildfly-10.1.0.Final/standalone/log/" --exclude="/opt/wildfly-10.1.0.Final/standalone/tmp"
