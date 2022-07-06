@@ -1,2 +1,23 @@
 #Get the hash md5 and some text at right side, remember how to use sed command and regex
 $ cat raw_data.txt | tr '\n|\t' ' ' |sed 's/\s\+/ /g' | sed "s/[0-9A-F]\{32\}/\n&/2g" ; echo
+
+#Some commands I used once time
+$ tar cvfz wildfly-10.1.tar /opt/wildfly-10.1.0.Final/ --exclude="/opt/wildfly-10.1.0.Final/standalone/log/" --exclude="/opt/wildfly-10.1.0.Final/standalone/tmp"
+
+$ /bin/bash /opt/wildfly-10.1.0.Final/bin/standalone.sh -c standalone-full.xml -b {ipaddr}  -bmanagement {ipaddr} &
+$ /bin/bash /opt/wildfly-10.1.0.Final/bin/standalone.sh -b {ipaddr} &
+
+JAVA_HOME=/usr/java/jdk1.8.0_151
+JRE_HOME=$JAVA_HOME/jre
+PATH=$JAVA_HOME/bin:$PATH:$HOME/bin
+
+# dnf install java-1.8.0-openjdk
+$ chown jboss.jboss -R /opt/wildfly-10.1.0.Final
+# firewall-cmd --zone=public --add-port=5432/tcp –permanent
+# firewall-cmd --zone=public --permanent --add-port=5432/tcp
+# firewall-cmd –reload
+# firewall-cmd --zone=public --list-ports
+# systemctl reload postgresql-10.service
+# firewall-cmd --zone=public --list-ports
+# dnf install net-snmp net-snmp-libs net-snmp-utils
+# nano /etc/ssh/sshd_config && systemctl restart sshd.service
